@@ -11,7 +11,7 @@ stages{
     steps{
     script{
                       withSonarQubeEnv('sonarqube') { 
-                      sh "./gradlew sonarqube"
+                      sh "gradle sonarqube"
                        }
                       timeout(time: 1, unit: 'HOURS') {
                       def qg = waitForQualityGate()
