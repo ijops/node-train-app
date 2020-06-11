@@ -4,7 +4,7 @@ stages{
     stage("sonar-check"){
       agent {
         docker{
-        image 'surittec/gradle-npm-ebcli'
+        image 'tarpuy/node-gradle'
          } 
         }
         
