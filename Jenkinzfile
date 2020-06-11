@@ -4,7 +4,7 @@ stages{
     stage("sonar-check"){
       agent {
         docker{
-        image 'henriquedroog/gradle-npm'
+        image 'surittec/gradle-npm-ebcli'
          } 
         }
         
