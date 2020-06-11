@@ -1,17 +1,17 @@
 pipeline{
 agent any{
 stages{
-stage("Docker-maven"){
+stage("Docker-gradle-sonar"){
 agent {
         docker{
-        image 'maven'
-        args '-v $HOME/.m2:/root/.m2'
+        image 'gradle'
+       
         } 
         }
          steps{
     script{
                       withSonarQubeEnv('sonarqube') { 
-                      sh "mvn sonar:sonar"
+                      sh "gradle sonarqube"
                        }
                       timeout(time: 1, unit: 'HOURS') {
                       def qg = waitForQualityGate()
@@ -22,4 +22,5 @@ agent {
 		    sh "mvn clean install"
                   }
                 }  
+              }
               }
