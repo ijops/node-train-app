@@ -1,14 +1,14 @@
 pipeline{
-agent any{
+agent any
 stages{
-stage("Docker-gradle-sonar"){
-agent {
+    stage("sonar-check"){
+      agent {
         docker{
         image 'gradle'
-       
-        } 
+         } 
         }
-         steps{
+        
+    steps{
     script{
                       withSonarQubeEnv('sonarqube') { 
                       sh "gradle sonarqube"
@@ -19,10 +19,10 @@ agent {
                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
                       }
                     }
-		    sh "mvn clean install"
+		    sh "./gradlew build"
                   }
                 }  
               }
               }
               }
-              }
+              }}
