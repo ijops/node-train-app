@@ -5,6 +5,7 @@ stages{
       agent {
         docker{
         image 'gradle:jdk8'
+        args '-u 0:0'
          } 
         }
         
