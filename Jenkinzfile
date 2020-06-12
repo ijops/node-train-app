@@ -2,13 +2,6 @@ pipeline{
 agent any
 stages{
     stage("sonar-check"){
-      agent {
-        docker{
-        image 'gradle:jdk8'
-        args '-u 0:0'
-         } 
-        }
-        
     steps{
     script{
                       withSonarQubeEnv('sonarqube') { 
@@ -21,6 +14,7 @@ stages{
                       }
                     }
 		    sh "./gradlew build"
+            sh "./gradlew npm_start"
                   }
                 }  
               }
