@@ -4,7 +4,7 @@ stages{
     stage("sonar-check"){
       agent {
         docker{
-        image 'jhoglin/gradle-node'
+        image 'muratso/gradle-jdk8'
          } 
         }
         
