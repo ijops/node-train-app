@@ -1,6 +1,6 @@
 FROM gradle:jdk8
 WORKDIR /opt/
-USER node
+USER root
 ADD . /opt/
 RUN ./gradlew build
 EXPOSE 3000
