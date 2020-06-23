@@ -1,4 +1,4 @@
-FROM gradle:4.2.1-jdk8-alpine
+FROM gradle:jdk8
 WORKDIR /opt/
 ADD . /opt/
 USER root
