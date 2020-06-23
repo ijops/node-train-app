@@ -6,7 +6,7 @@ pipeline {
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
-                sh 'nohup ./gradlew npm_start'
+                sh './gradlew npm_start &'
             }
         }
         stage("Docker build"){
